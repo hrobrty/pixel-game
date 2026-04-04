@@ -1,4 +1,4 @@
-import type { OptionKey, Question, ScoreResponse } from '../types'
+import type { OptionKey, Question } from '../types'
 import { BossAvatar } from '../components/BossAvatar'
 import { OptionButton } from '../components/OptionButton'
 import { ProgressBar } from '../components/ProgressBar'

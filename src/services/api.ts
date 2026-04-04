@@ -6,6 +6,9 @@ import { GAS_URL, QUESTION_COUNT } from '../constants'
  * NOTE: GAS doGet 返回 JSON，需设置为「所有人可访问」
  */
 export async function fetchQuestions(): Promise<Question[]> {
+  if (!GAS_URL || GAS_URL.includes('YOUR_SCRIPT_ID')) {
+    throw new Error('請先在 .env 或 GitHub Secrets 中設定有效的 VITE_GAS_URL 網址！')
+  }
   const url = new URL(GAS_URL)
   url.searchParams.set('action', 'getQuestions')
   url.searchParams.set('count', String(QUESTION_COUNT))

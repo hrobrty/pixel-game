@@ -1,0 +1,159 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-bg);
+  transition: background-color 0.3s;
+}
+
+.pagePassed {
+  --result-color: var(--color-primary);
+  --result-glow: var(--color-primary-glow);
+}
+
+.pageFailed {
+  --result-color: var(--color-red);
+  --result-glow: rgba(255, 68, 68, 0.25);
+}
+
+.bgGrid {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(from var(--result-color) r g b / 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(from var(--result-color) r g b / 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+.main {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  width: 100%;
+  max-width: 480px;
+  padding: var(--space-8) var(--space-6);
+}
+
+/* 大标题 */
+.resultTitle {
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.4s steps(4), transform 0.4s steps(4);
+}
+
+.titleAnimate {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.titleBig {
+  font-size: clamp(36px, 10vw, 52px);
+  line-height: 1.1;
+  color: var(--result-color);
+  letter-spacing: 6px;
+  text-shadow:
+    4px 4px 0 rgba(from var(--result-color) r g b / 0.5),
+    8px 8px 0 rgba(from var(--result-color) r g b / 0.2),
+    0 0 30px var(--result-glow);
+}
+
+.titleGameOver {
+  color: var(--color-red);
+}
+
+.titleSub {
+  font-size: 8px;
+  color: var(--color-text-dim);
+  letter-spacing: 5px;
+  margin-top: var(--space-2);
+}
+
+/* 分数面板 */
+.scorePanel {
+  width: 100%;
+  background-color: var(--color-bg-panel);
+  border: var(--border-pixel) solid var(--result-color);
+  box-shadow:
+    0 0 0 var(--border-pixel) var(--color-bg),
+    0 0 0 calc(var(--border-pixel) * 2) var(--result-color),
+    0 0 24px var(--result-glow);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s steps(4) 0.2s, transform 0.4s steps(4) 0.2s;
+}
+
+.panelAnimate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.divider {
+  height: 2px;
+  background-color: var(--color-border);
+}
+
+.playerRow,
+.statRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.scoreLabel {
+  font-size: 8px;
+  color: var(--color-text-dim);
+  letter-spacing: 2px;
+}
+
+.scoreValue {
+  font-size: 11px;
+  color: var(--color-text);
+  letter-spacing: 1px;
+  text-align: right;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.starsRow {
+  text-align: center;
+}
+
+.stars {
+  font-size: 24px;
+  letter-spacing: 8px;
+  color: var(--color-yellow);
+}
+
+/* 操作按钮 */
+.actions {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s steps(3) 0.5s, transform 0.3s steps(3) 0.5s;
+}
+
+.actionsAnimate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.encouragement {
+  font-size: 8px;
+  color: var(--color-text-muted);
+  letter-spacing: 2px;
+  text-align: center;
+}

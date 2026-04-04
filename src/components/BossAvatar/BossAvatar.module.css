@@ -1,0 +1,63 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.frame {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  background-color: var(--color-bg-card);
+  border: var(--border-pixel) solid var(--color-primary);
+  box-shadow:
+    0 0 0 var(--border-pixel) var(--color-bg),
+    0 0 0 calc(var(--border-pixel) * 2) var(--color-primary),
+    0 0 20px var(--color-primary-glow),
+    inset 0 0 20px rgba(0, 255, 136, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* CRT 扫描线叠在头像上 */
+.scanline {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 0, 0, 0.2) 3px,
+    rgba(0, 0, 0, 0.2) 4px
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  image-rendering: pixelated;
+  z-index: 1;
+  /* 像素头像轻微上下浮动 */
+  animation: float 2s steps(4) infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.name {
+  font-size: 8px;
+  color: var(--color-primary);
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px var(--color-primary-glow);
+}
+
+.nameBracket {
+  color: var(--color-text-dim);
+}

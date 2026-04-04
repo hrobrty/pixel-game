@@ -1,0 +1,70 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 24px;
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-bg);
+  background-color: var(--color-primary);
+  border: var(--border-pixel) solid var(--color-primary-dim);
+  /* 像素风立体按钮阴影 */
+  box-shadow:
+    4px 4px 0 0 var(--color-primary-dim),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  image-rendering: pixelated;
+  white-space: nowrap;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+  box-shadow:
+    6px 6px 0 0 var(--color-primary-dim),
+    0 0 12px var(--color-primary-glow);
+}
+
+.btn:active:not(:disabled) {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* danger 红色变体 */
+.danger {
+  color: #fff;
+  background-color: var(--color-red);
+  border-color: #cc2222;
+  box-shadow: 4px 4px 0 0 #cc2222;
+}
+
+.danger:hover:not(:disabled) {
+  box-shadow:
+    6px 6px 0 0 #cc2222,
+    0 0 12px rgba(255, 68, 68, 0.4);
+}
+
+/* ghost 描边变体 */
+.ghost {
+  color: var(--color-primary);
+  background-color: transparent;
+  border-color: var(--color-primary);
+  box-shadow: 4px 4px 0 0 var(--color-primary-dim);
+}
+
+.ghost:hover:not(:disabled) {
+  background-color: rgba(0, 255, 136, 0.08);
+  box-shadow:
+    6px 6px 0 0 var(--color-primary-dim),
+    0 0 12px var(--color-primary-glow);
+}
+
+.fullWidth {
+  width: 100%;
+}

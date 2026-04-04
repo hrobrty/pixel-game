@@ -1,0 +1,32 @@
+# 1. log 紀錄日誌 (Logs)
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 2. 專案套件資料夾 (Dependencies)
+node_modules/
+.pnp
+.pnp.js
+
+# 3. 自動生成資料夾系統暫存檔 (Build & System)
+dist/
+dist-ssr/
+*.tsbuildinfo
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+.idea/
+.vscode/
+
+# 4. 儲存敏感資料檔 (Environment & Secrets)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+credentials.json

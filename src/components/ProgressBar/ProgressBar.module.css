@@ -1,0 +1,57 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 8px;
+  color: var(--color-text-dim);
+  letter-spacing: 2px;
+}
+
+.count {
+  color: var(--color-primary);
+}
+
+.track {
+  position: relative;
+  height: 16px;
+  background-color: var(--color-bg-card);
+  border: 2px solid var(--color-border);
+  overflow: hidden;
+}
+
+.fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary-dim), var(--color-primary));
+  box-shadow: 0 0 8px var(--color-primary-glow);
+  transition: width 0.4s steps(10);
+}
+
+/* 像素格子分割线叠在进度条上 */
+.segments {
+  position: absolute;
+  inset: 0;
+  display: flex;
+}
+
+.seg {
+  flex: 1;
+  border-right: 2px solid rgba(0, 0, 0, 0.4);
+}
+
+.seg:last-child {
+  border-right: none;
+}
+
+.segDone {
+  /* 答过的题目格子微微透明 */
+  background-color: rgba(0, 255, 136, 0.08);
+}

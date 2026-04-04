@@ -1,0 +1,60 @@
+name: Deploy Pixel Game to GitHub Pages
+
+on:
+  # 當 push 到 main / master 分支時自動觸發部署
+  push:
+    branches:
+      - main
+      - master
+  # 允許手動從 Actions 介面點擊觸發
+  workflow_dispatch:
+
+# 設置權限以允許部署到 GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 確保同時只有一個部署正在進行
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        # 打包時會吃這一步的 env 設定
+        env:
+          VITE_GAS_URL: ${{ secrets.VITE_GAS_URL }}
+          VITE_PASS_THRESHOLD: ${{ vars.VITE_PASS_THRESHOLD || '70' }}
+          VITE_QUESTION_COUNT: ${{ vars.VITE_QUESTION_COUNT || '10' }}
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

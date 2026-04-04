@@ -1,0 +1,69 @@
+/* ===== 全局样式重置与基础 ===== */
+@import './variables.css';
+@import './pixel.css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: var(--font-pixel);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.8;
+  /* 像素渲染 */
+  image-rendering: pixelated;
+  /* 防止字体抗锯齿 */
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* 滚动条像素风 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-panel);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-bright);
+  border: 2px solid var(--color-bg);
+}
+
+/* 选中文本颜色 */
+::selection {
+  background: var(--color-primary);
+  color: var(--color-bg);
+}
+
+/* 链接统一 */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* input 重置 */
+input {
+  font-family: var(--font-pixel);
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-pixel);
+  border: none;
+  background: none;
+}

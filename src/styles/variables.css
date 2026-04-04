@@ -1,0 +1,46 @@
+/* ===== CSS 变量系统 ===== */
+:root {
+  /* 像素风色板 — 街机暗色系 */
+  --color-bg: #0a0a0f;
+  --color-bg-panel: #111120;
+  --color-bg-card: #1a1a2e;
+
+  --color-primary: #00ff88;       /* 主绿 — 街机 CRT 绿 */
+  --color-primary-dim: #00cc6a;
+  --color-primary-glow: rgba(0, 255, 136, 0.25);
+
+  --color-accent: #ff6b35;        /* 强调橙 — 街机暖色 */
+  --color-accent-dim: #cc5520;
+
+  --color-yellow: #ffd700;        /* 金色 — 得分/高亮 */
+  --color-red: #ff4444;           /* 错误/失败 */
+  --color-blue: #4488ff;          /* 信息色 */
+
+  --color-text: #e8e8f0;
+  --color-text-dim: #8888aa;
+  --color-text-muted: #555577;
+
+  --color-border: #333355;
+  --color-border-bright: #5555aa;
+
+  /* 像素字体 */
+  --font-pixel: 'Press Start 2P', monospace;
+  --font-ui: 'Press Start 2P', monospace;
+
+  /* 间距 */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* 像素边框粗细 */
+  --border-pixel: 3px;
+
+  /* 动画 */
+  --transition-fast: 80ms steps(2);
+  --transition-normal: 120ms steps(3);
+}

@@ -1,0 +1,49 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  z-index: 100;
+}
+
+/* 像素风旋转 spinner — 4个像素格子绕中心旋转 */
+.spinner {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  animation: spin 1s steps(8) infinite;
+}
+
+.pixel {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: var(--color-primary);
+}
+
+.pixel:nth-child(1) { top: 0; left: 0; }
+.pixel:nth-child(2) { top: 0; right: 0; opacity: 0.6; }
+.pixel:nth-child(3) { bottom: 0; right: 0; opacity: 0.3; }
+.pixel:nth-child(4) { bottom: 0; left: 0; opacity: 0.1; }
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.message {
+  font-size: 9px;
+  color: var(--color-primary);
+  letter-spacing: 3px;
+  text-shadow: 0 0 8px var(--color-primary-glow);
+  animation: blink 1s steps(2) infinite;
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0.3; }
+}

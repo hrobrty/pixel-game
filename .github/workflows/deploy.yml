@@ -42,9 +42,9 @@ jobs:
       - name: Build project
         # 打包時會吃這一步的 env 設定
         env:
-          VITE_GAS_URL: ${{ secrets.VITE_GAS_URL }}
-          VITE_PASS_THRESHOLD: ${{ vars.VITE_PASS_THRESHOLD || '70' }}
-          VITE_QUESTION_COUNT: ${{ vars.VITE_QUESTION_COUNT || '10' }}
+          VITE_GAS_URL: ${{ secrets['VITE_GAS_URL'] }}
+          VITE_PASS_THRESHOLD: ${{ vars['VITE_PASS_THRESHOLD'] || '70' }}
+          VITE_QUESTION_COUNT: ${{ vars['VITE_QUESTION_COUNT'] || '10' }}
         run: npm run build
 
       - name: Setup Pages
